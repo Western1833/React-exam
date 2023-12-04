@@ -1,23 +1,31 @@
 .registrationContainer {
-    position: relative; /* Position relative to make child positioning absolute */
+    position: relative;
+    height: 86.2vh; /* Set container height to full viewport height */
   }
   
   .imageContainer {
-    position: relative; /* Required for absolute positioning inside */
+    position: relative;
+    height: 100%; /* Adjust the image container height as needed */
+    overflow: hidden; /* Hide any overflowing content */
   }
   
   .image {
-    width: 100%; /* Ensure image takes full width */
-    display: block; /* Remove any default inline styles */
+    width: 100%;
+    height: 100%; /* Fill the image container */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    display: block;
     /* Other styles as needed */
   }
   
   .register {
-    position: absolute; /* Position absolute */
-    top: 50%; /* Adjust as needed */
-    left: 50%; /* Adjust as needed */
-    transform: translate(-50%, -50%); /* Center the div */
+    position: absolute;
+    top: 50%; /* Position the registration div at the vertical center */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center both vertically and horizontally */
     background-color: gray;
-    /* Other styles for the registration div */
+    padding: 20px; /* Add padding to increase size */
+    font-size: 24px; /* Increase font size */
+    border-radius: 15px;
   }
+  
   

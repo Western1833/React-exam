@@ -11,10 +11,9 @@ export default function Home() {
                     <h3>Choose your next car</h3>
                 </div>
                 <div className={styles['car-list']}>
-                    <h3>There are no cars added yet, click <a href="">Here</a> to add a car.</h3>
-                    <h3>Currently you can choose from total cars.</h3>
                     <div style={{ marginBottom: '20px' }}> {/* Adjust margin as needed */}
                         <CarInfoCard/>
+                    <h3>There are no cars added yet, click <a href="">Here</a> to add a car.</h3>
                     </div>
                 </div>
                 <img className={styles['car-image']} src="./images/main-page-car.jpg" alt="" />

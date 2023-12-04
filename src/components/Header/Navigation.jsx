@@ -7,14 +7,17 @@ export default function Header() {
     <header>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <Navbar.Brand href="/">CarSpecs</Navbar.Brand>
+          <Nav className="ms-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="#features">Login</Nav.Link>
+            <Nav.Link href="#pricing">Register</Nav.Link>
+            <Nav.Link href="#pricing">Logout</Nav.Link>
+            <Nav.Link href="#pricing">Add car</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
     </header>
   );
 }
+

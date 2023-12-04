@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <>
             <footer>
-                <p>React project by Iliya Kashev.</p>
+                <p>React project by Iliya Kashev &copy;</p>
             </footer>
         </>
     );

@@ -18,7 +18,6 @@ export default function Home() {
                 </div>
                 <img className={styles['car-image']} src="./images/main-page-car.jpg" alt="" />
             </section>
-            <Footer />
         </>
     );
 }

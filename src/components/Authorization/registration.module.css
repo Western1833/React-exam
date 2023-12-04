@@ -1,0 +1,23 @@
+.registrationContainer {
+    position: relative; /* Position relative to make child positioning absolute */
+  }
+  
+  .imageContainer {
+    position: relative; /* Required for absolute positioning inside */
+  }
+  
+  .image {
+    width: 100%; /* Ensure image takes full width */
+    display: block; /* Remove any default inline styles */
+    /* Other styles as needed */
+  }
+  
+  .register {
+    position: absolute; /* Position absolute */
+    top: 50%; /* Adjust as needed */
+    left: 50%; /* Adjust as needed */
+    transform: translate(-50%, -50%); /* Center the div */
+    background-color: gray;
+    /* Other styles for the registration div */
+  }
+  

@@ -1,24 +1,26 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <header>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="/" className="fs-4">CarSpecs</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/" className="fs-4">CarSpecs</Navbar.Brand>
           <Nav className="ms-auto">
-            <Nav.Link href="/" className="fs-4">Home</Nav.Link> {/* Adjust font size using 'fs-5' */}
-            <Nav.Link href="#features" className="fs-4">Login</Nav.Link>
-            <Nav.Link href="#pricing" className="fs-4">Register</Nav.Link>
-            <Nav.Link href="#pricing" className="fs-4">Logout</Nav.Link>
-            <Nav.Link href="#pricing" className="fs-4">Add car</Nav.Link>
+            <Nav.Link as={Link} to="/" className="fs-4">Home</Nav.Link>
+            <Nav.Link as={Link} to="#features" className="fs-4">Login</Nav.Link>
+            <Nav.Link as={Link} to="/register" className="fs-4">Register</Nav.Link>
+            <Nav.Link as={Link} to="#pricing" className="fs-4">Logout</Nav.Link>
+            <Nav.Link as={Link} to="#pricing" className="fs-4">Add car</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
     </header>
   );
 }
+
 
 

@@ -2,9 +2,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-export default function Navigation() {
+export default function Header() {
   return (
-    <>
+    <header>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
@@ -15,6 +15,6 @@ export default function Navigation() {
           </Nav>
         </Container>
       </Navbar>
-    </>
+    </header>
   );
 }

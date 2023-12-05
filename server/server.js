@@ -1339,6 +1339,41 @@
     	}
     };
     var seedData = {
+        cars:{
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
+                _ownerId: '3987279d-0ad4-4afb-8ca9-5b256ae3b298',
+                imageUrl: 'https://www.ultimatespecs.com/cargallery/11/6403/BMW-E61-5-Series-Touring-2.jpg',
+                brand: 'BMW',
+                model: '530d',
+                engineDisplacement: '2993',
+                enginePower: '218',
+                fuelType: 'Diesel',
+                drivetrain: 'RWD',
+                transmission: 'Automatic'
+            },
+            "4987279d-0ad4-4afb-8ca9-5b256ae3b294": {
+                _ownerId: '4987279d-0ad4-4afb-8ca9-5b256ae3b294',
+                imageUrl: 'https://cdn3.focus.bg/autodata/i/audi/a6/a6-avant-4g-c7/medium/e85cf212e16539155f1d11b7202e8813.jpg',
+                brand: 'Audi',
+                model: 'A6',
+                engineDisplacement: '3000',
+                enginePower: '245',
+                fuelType: 'Diesel',
+                drivetrain: 'AWD',
+                transmission: 'Automatic'
+            },
+            "5987279d-0ad4-4afb-8ca9-5b256ae3b295": {
+                _ownerId: '5987279d-0ad4-4afb-8ca9-5b256ae3b295',
+                imageUrl: 'https://7cars.bg/wp-content/uploads/2022/12/0-02-05-06ebe6cbd9338cf282ab4079d5a9007e14285b23ddd278d6ec86f0f0ed689dcc_6eafbbb74c047227-876x535.jpg',
+                brand: 'Mercedes-Benz',
+                model: 'E320 CDI',
+                engineDisplacement: '3200',
+                enginePower: '224',
+                fuelType: 'Diesel',
+                drivetrain: 'RWD',
+                transmission: 'Automatic'
+            }
+        },
     	recipes: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",

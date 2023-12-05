@@ -14,7 +14,7 @@ export default function RegisterForm() {
             <label htmlFor="password">Repeat Password</label>
             <input type="password" placeholder="Repeat Password" id="re-password"/>
 
-        <button>Log In</button>
+        <button>Register</button>
     </form>
     );
 }

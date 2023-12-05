@@ -11,7 +11,7 @@ export default function Header() {
           <Navbar.Brand as={Link} to="/" className="fs-4">CarSpecs</Navbar.Brand>
           <Nav className="ms-auto">
             <Nav.Link as={Link} to="/" className="fs-4">Home</Nav.Link>
-            <Nav.Link as={Link} to="#features" className="fs-4">Login</Nav.Link>
+            <Nav.Link as={Link} to="/login" className="fs-4">Login</Nav.Link>
             <Nav.Link as={Link} to="/register" className="fs-4">Register</Nav.Link>
             <Nav.Link as={Link} to="#pricing" className="fs-4">Logout</Nav.Link>
             <Nav.Link as={Link} to="#pricing" className="fs-4">Add car</Nav.Link>

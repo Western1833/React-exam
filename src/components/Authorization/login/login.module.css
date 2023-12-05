@@ -1,4 +1,4 @@
-.registrationContainer {
+.loginContainer {
     position: relative;
     height: 86.2vh; /* Set container height to full viewport height */
   }
@@ -17,7 +17,7 @@
     /* Other styles as needed */
   }
   
-  .register {
+  .login {
     position: absolute;
     top: 50%; /* Position the registration div at the vertical center */
     left: 50%; /* Center horizontally */
@@ -27,5 +27,50 @@
     font-size: 24px; /* Increase font size */
     border-radius: 15px;
   }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px; /* Adjust as needed */
+    margin: 0 auto;
+  }
   
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-label {
+    margin-bottom: 5px;
+  }
+  
+  .form-input {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    /* Adjust width and margin as needed */
+    width: 100%; /* Take full width */
+    margin-right: 10px; /* Add space between inputs */
+  }
+  
+  .btn.submit {
+    margin-top: 10px;
+    cursor: pointer;
+    /* Additional styling for the submit button */
+  }
+  
+  .link-login {
+    margin-top: 10px;
+  }
+  
+  .link-login a {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .link-login a:hover {
+    text-decoration: underline;
+  }
   

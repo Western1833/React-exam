@@ -6,6 +6,7 @@ import Registration from './components/Authorization/register/Registration.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Login from './components/Authorization/login/Login.jsx';
 import Cars from './components/Cars/Cars.jsx';
+import CarCreate from './components/Create/CarCreate.jsx';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/cars' element={<Cars />} />
         <Route path='/register' element={<Registration />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/create' element={<CarCreate />} />
       </Routes>
       <Footer/>
     </div>

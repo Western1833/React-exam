@@ -14,8 +14,8 @@ export default function Header() {
             <Nav.Link as={Link} to="/cars" className="fs-4">Cars</Nav.Link>
             <Nav.Link as={Link} to="/login" className="fs-4">Login</Nav.Link>
             <Nav.Link as={Link} to="/register" className="fs-4">Register</Nav.Link>
-            <Nav.Link as={Link} to="#pricing" className="fs-4">Logout</Nav.Link>
-            <Nav.Link as={Link} to="#pricing" className="fs-4">Add car</Nav.Link>
+            <Nav.Link as={Link} to="/logout" className="fs-4">Logout</Nav.Link>
+            <Nav.Link as={Link} to="/create" className="fs-4">Add car</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

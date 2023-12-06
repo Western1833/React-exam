@@ -16,3 +16,19 @@ export const getAllCars = async () => {
         return [];
     }
 }
+
+export const create = async (data) => {
+    try{
+        const request = await fetch(baseUrl, {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(data)
+        });
+
+        if(!request.ok){
+            throw new Error('Error while fetching:');
+        }
+    }catch(err){
+        console.log(err.message);
+    }
+}

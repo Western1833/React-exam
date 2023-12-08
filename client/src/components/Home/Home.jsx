@@ -1,5 +1,4 @@
 import styles from './home.module.css';
-import Footer from '../Footer/Footer.jsx';
 import CarInfoCard from '../Card/Card.jsx';
 
 export default function Home() {

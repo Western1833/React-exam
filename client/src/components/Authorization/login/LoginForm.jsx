@@ -1,11 +1,29 @@
+import { useState } from 'react';
 import styles from '../loginAndRegister.module.css';
+import { login } from '../../../services/authService.js';
 
 export default function LoginForm(){
-    function onLoginHandler(e){
+  const [formValue, setFormValue] = useState({
+    email: '',
+    password: '',
+  });
+
+  const changeHandler = (e) => {
+    setFormValue(state => ({
+      ...state,
+      [e.target.name]: e.target.value
+    }));
+  }
+
+    async function onLoginHandler(e){
       e.preventDefault();
 
-      const data = Object.fromEntries(new FormData(e.target));
-      console.log(data);
+      try{
+        await login(formValue);
+      }catch(err){
+        console.log(err.message);
+        return
+      }
     }
 
     return(
@@ -13,13 +31,27 @@ export default function LoginForm(){
     <form className={styles['login']} onSubmit={onLoginHandler}>
         <h3>Login Here</h3>
 
-        <label htmlFor="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" name='username'/>
+        <label htmlFor="email">Email</label>
+        <input
+        type="text"
+        placeholder="Email"
+        id="email"
+        name='email'
+        value={formValue.email}
+        onChange={changeHandler}
+        />
 
         <label htmlFor="password">Password</label>
-        <input type="password" placeholder="Password" id="password" name='password'/>
+        <input
+        type="password"
+        placeholder="Password"
+        id="password"
+        name='password'
+        value={formValue.password}
+        onChange={changeHandler}
+        />
 
-        <button type='submit'>Log In</button>
+        <button>Log In</button>
     </form>
     );
 }

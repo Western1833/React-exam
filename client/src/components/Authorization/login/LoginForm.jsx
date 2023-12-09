@@ -2,44 +2,52 @@ import { useState } from 'react';
 import styles from '../loginAndRegister.module.css';
 import { login } from '../../../services/authService.js';
 import { useNavigate } from 'react-router-dom';
+import useForm from '../../../hooks/useForm.js';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export default function LoginForm(){
-  const [formValue, setFormValue] = useState({
+export default function LoginForm({
+  loginSubmitHandler,
+}){
+  const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
     email: '',
-    password: '',
+    password: ''
   });
-  const navigate = useNavigate();
 
-  const changeHandler = (e) => {
-    setFormValue(state => ({
-      ...state,
-      [e.target.name]: e.target.value
-    }));
-  }
+  // const [formValue, setFormValue] = useState({
+  //   email: '',
+  //   password: '',
+  // });
+  // const navigate = useNavigate();
 
-    async function onLoginHandler(e){
-      e.preventDefault();
+  // const changeHandler = (e) => {
+  //   setFormValue(state => ({
+  //     ...state,
+  //     [e.target.name]: e.target.value
+  //   }));
+  // }
+
+  //   async function onLoginHandler(e){
+  //     e.preventDefault();
 
 
-      try{
-        if(emailRegex.test(formValue.email)){
-          await login(formValue);
+  //     try{
+  //       if(emailRegex.test(formValue.email)){
+  //         await login(formValue);
 
-          navigate('/');
-        }else{
-          throw new Error('Invalid email!');
-        }
-      }catch(err){
-        console.log(err.message);
-        return;
-      }
-    }
+  //         navigate('/');
+  //       }else{
+  //         throw new Error('Invalid email!');
+  //       }
+  //     }catch(err){
+  //       console.log(err.message);
+  //       return;
+  //     }
+  //   }
 
     return(
 
-    <form className={styles['login']} onSubmit={onLoginHandler}>
+    <form className={styles['login']} onSubmit={onSubmit}>
         <h3>Login Here</h3>
 
         <label htmlFor="email">Email</label>
@@ -48,8 +56,8 @@ export default function LoginForm(){
         placeholder="Email"
         id="email"
         name='email'
-        value={formValue.email}
-        onChange={changeHandler}
+        value={values.email}
+        onChange={onChange}
         />
 
         <label htmlFor="password">Password</label>
@@ -58,8 +66,8 @@ export default function LoginForm(){
         placeholder="Password"
         id="password"
         name='password'
-        value={formValue.password}
-        onChange={changeHandler}
+        value={values.password}
+        onChange={onChange}
         />
         <button>Log In</button>
     </form>

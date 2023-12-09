@@ -10,7 +10,7 @@ export default function useForm(submitHandler, initialValues){
         }));
     }
 
-    const onSubmit = async(e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
 
         submitHandler(values);
@@ -18,6 +18,7 @@ export default function useForm(submitHandler, initialValues){
 
     return {
         values,
-        onChange
+        onChange,
+        onSubmit
     }
 }

@@ -28,8 +28,18 @@ function App() {
     }
   }
 
+  const registerSubmitHandler = async (values) => {
+    console.log(values);
+    try{
+
+    }catch(err){
+
+    }
+  }
+
   const values = {
     loginSubmitHandler,
+    registerSubmitHandler,
     email: auth.email,
     isAuthenticated: !!auth.email,
   }

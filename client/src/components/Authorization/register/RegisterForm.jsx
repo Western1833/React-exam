@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from '../loginAndRegister.module.css';
 import { register } from '../../../services/authService.js';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../../utils/utils.js';
+import AuthContext from '../../../contexts/authContext.js';
+import useForm from '../../../hooks/useForm.js';
 
 export default function RegisterForm() {
-    const [formValues, setFormValues] = useState({
+    const {registerSubmitHandler} = useContext(AuthContext);
+
+    const {values, onChange, onSubmit} = useForm(registerSubmitHandler, {
         email: '',
         password: '',
         repeatPassword: ''
@@ -36,7 +40,7 @@ export default function RegisterForm() {
     }
 
     return (
-        <form className={styles['register']} onSubmit={onRegisterHandler}>
+        <form className={styles['register']} onSubmit={onSubmit}>
             <h3>Register Here</h3>
 
             <label htmlFor="username">Email</label>
@@ -45,8 +49,8 @@ export default function RegisterForm() {
             placeholder="Email"
             id="email"
             name='email'
-            value={formValues.email}
-            onChange={changeHandler}
+            value={values.email}
+            onChange={onChange}
             />
 
             <label htmlFor="password">Password</label>
@@ -55,8 +59,8 @@ export default function RegisterForm() {
             placeholder="Password"
             id="password"
             name='password'
-            value={formValues.password}
-            onChange={changeHandler}
+            value={values.password}
+            onChange={onChange}
             />
 
             <label htmlFor="password">Repeat Password</label>
@@ -65,8 +69,8 @@ export default function RegisterForm() {
             placeholder="Repeat Password"
             id="re-password"
             name='repeatPassword'
-            value={formValues.repeatPassword}
-            onChange={changeHandler}
+            value={values.repeatPassword}
+            onChange={onChange}
             />
 
         <button>Register</button>

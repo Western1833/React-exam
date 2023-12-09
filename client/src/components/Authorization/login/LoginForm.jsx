@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from '../loginAndRegister.module.css';
 import { login } from '../../../services/authService.js';
 import { useNavigate } from 'react-router-dom';
 import useForm from '../../../hooks/useForm.js';
+import AuthContext from '../../../contexts/authContext.js';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export default function LoginForm({
-  loginSubmitHandler,
-}){
+export default function LoginForm(){
+  const {loginSubmitHandler} = useContext(AuthContext);
+
   const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
     email: '',
     password: ''

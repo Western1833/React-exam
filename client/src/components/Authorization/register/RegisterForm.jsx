@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from '../loginAndRegister.module.css';
 import { register } from '../../../services/authService.js';
 import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../../utils/utils.js';
 
 export default function RegisterForm() {
     const [formValues, setFormValues] = useState({
@@ -28,7 +29,7 @@ export default function RegisterForm() {
             }
             await register(formValues);
 
-            navigate('/users/login');
+            navigate(PATHS.login);
         }catch(err){
             console.log(err.message);
         }

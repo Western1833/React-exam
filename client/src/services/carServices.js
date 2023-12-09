@@ -1,8 +1,9 @@
-const baseUrl = 'http://localhost:3030/data/cars';
+import { PATHS } from "../utils/utils.js";
+
 
 export const getAllCars = async () => {
     try{
-        const request = await fetch(baseUrl);
+        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}`);
         
         if(!request.ok){
             throw new Error('Error while fetching data:');
@@ -19,7 +20,7 @@ export const getAllCars = async () => {
 
 export const create = async (data) => {
     try{
-        const request = await fetch(baseUrl, {
+        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}`, {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(data)

@@ -9,6 +9,7 @@ import Cars from './components/Cars/Cars.jsx';
 import CarCreate from './components/Create/CarCreate.jsx';
 import { useState } from 'react';
 import AuthContext from './contexts/authContext.js';
+import { PATHS } from './utils/utils.js';
 
 function App() {
   const [auth, setAuth] = useState({});
@@ -22,11 +23,11 @@ function App() {
       <div id='root'>
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/cars' element={<Cars />} />
-          <Route path='/users/register' element={<Registration />} />
-          <Route path='/users/login' element={<Login />} />
-          <Route path='/create' element={<CarCreate />} />
+          <Route path={PATHS.home} element={<Home />} />
+          <Route path={PATHS.cars} element={<Cars />} />
+          <Route path={PATHS.register} element={<Registration />} />
+          <Route path={PATHS.login} element={<Login />} />
+          <Route path={PATHS.create} element={<CarCreate />} />
         </Routes>
         <Footer/>
       </div>

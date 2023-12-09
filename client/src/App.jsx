@@ -21,15 +21,21 @@ function App() {
       const result = await login(values);
 
       setAuth(result);
-      
+
       navigate(PATHS.home);
     } catch (err) {
       console.log(err);
     }
   }
 
+  const values = {
+    loginSubmitHandler,
+    email: auth.email,
+    isAuthenticated: !!auth.email,
+  }
+
   return (
-    <AuthContext.Provider value={{ loginSubmitHandler }}>
+    <AuthContext.Provider value={values}>
       <div id='root'>
         <Header />
         <Routes>

@@ -1,11 +1,7 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import styles from '../loginAndRegister.module.css';
-import { login } from '../../../services/authService.js';
-import { useNavigate } from 'react-router-dom';
 import useForm from '../../../hooks/useForm.js';
 import AuthContext from '../../../contexts/authContext.js';
-
-import { emailRegex } from '../../../utils/utils.js';
 
 export default function LoginForm(){
   const {loginSubmitHandler} = useContext(AuthContext);
@@ -14,37 +10,6 @@ export default function LoginForm(){
     email: '',
     password: ''
   });
-
-  // const [formValue, setFormValue] = useState({
-  //   email: '',
-  //   password: '',
-  // });
-  // const navigate = useNavigate();
-
-  // const changeHandler = (e) => {
-  //   setFormValue(state => ({
-  //     ...state,
-  //     [e.target.name]: e.target.value
-  //   }));
-  // }
-
-  //   async function onLoginHandler(e){
-  //     e.preventDefault();
-
-
-  //     try{
-  //       if(emailRegex.test(formValue.email)){
-  //         await login(formValue);
-
-  //         navigate('/');
-  //       }else{
-  //         throw new Error('Invalid email!');
-  //       }
-  //     }catch(err){
-  //       console.log(err.message);
-  //       return;
-  //     }
-  //   }
 
     return(
 

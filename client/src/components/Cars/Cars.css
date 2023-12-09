@@ -5,7 +5,7 @@
   }
 
   .cars-page {
-    background-image: url('./images/black-concrete-wall.jpg');
+    background-image: url('/images/black-concrete-wall.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

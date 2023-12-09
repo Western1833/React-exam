@@ -1,21 +1,46 @@
 const baseUrl = 'http://localhost:3030/users';
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export async function login({email, password}){
-    try{
+export async function login({ email, password }) {
+    try {
         const response = await fetch(`${baseUrl}/login`, {
             method: 'POST',
-            headers: {'content-type': 'application/json'},
-            body: JSON.stringify({email,password})
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email, password })
         });
 
-        if(response.status === 403){
+        if (response.status === 403) {
             throw new Error('Wrong username or password.')
         }
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error('Error while fetching.');
         }
-    }catch(err){
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+export async function register({ email, password, repeatPassword }) {
+    try {
+        if (emailRegex.test(email)) {
+            const response = await fetch(`${baseUrl}/register`, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+
+            if (response.status === 403) {
+                throw new Error('Wrong username or password.')
+            }
+
+            if (!response.ok) {
+                throw new Error('Error while fetching.');
+            }
+        } else {
+            throw new Error('Invalid email!');
+        }
+    } catch (err) {
         console.log(err.message);
     }
 }

@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     min-height: 80vh; /* Reduced height of the background */
-    background-image: url('./images/black-concrete-wall.jpg');
+    background-image: url('/images/black-concrete-wall.jpg');
     background-size: cover;
     background-position: center;
     padding: 20px;

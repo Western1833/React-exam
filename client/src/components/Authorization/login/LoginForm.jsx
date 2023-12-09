@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import styles from '../loginAndRegister.module.css';
 import { login } from '../../../services/authService.js';
+import { useNavigate } from 'react-router-dom';
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function LoginForm(){
   const [formValue, setFormValue] = useState({
     email: '',
     password: '',
   });
+  const navigate = useNavigate();
 
   const changeHandler = (e) => {
     setFormValue(state => ({
@@ -18,11 +22,18 @@ export default function LoginForm(){
     async function onLoginHandler(e){
       e.preventDefault();
 
+
       try{
-        await login(formValue);
+        if(emailRegex.test(formValue.email)){
+          await login(formValue);
+
+          navigate('/');
+        }else{
+          throw new Error('Invalid email!');
+        }
       }catch(err){
         console.log(err.message);
-        return
+        return;
       }
     }
 
@@ -50,7 +61,6 @@ export default function LoginForm(){
         value={formValue.password}
         onChange={changeHandler}
         />
-
         <button>Log In</button>
     </form>
     );

@@ -1,9 +1,10 @@
-const baseUrl = 'http://localhost:3030/users';
+import { PATHS } from "../utils/utils.js";
+
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function login({ email, password }) {
     try {
-        const response = await fetch(`${baseUrl}/login`, {
+        const response = await fetch(`${PATHS.baseUrl}${PATHS.login}`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -24,7 +25,7 @@ export async function login({ email, password }) {
 export async function register({ email, password, repeatPassword }) {
     try {
         if (emailRegex.test(email)) {
-            const response = await fetch(`${baseUrl}/register`, {
+            const response = await fetch(`${PATHS.baseUrl}${PATHS.register}`, {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify({ email, password })

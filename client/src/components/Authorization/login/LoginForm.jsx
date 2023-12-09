@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import useForm from '../../../hooks/useForm.js';
 import AuthContext from '../../../contexts/authContext.js';
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+import { emailRegex } from '../../../utils/utils.js';
 
 export default function LoginForm(){
   const {loginSubmitHandler} = useContext(AuthContext);

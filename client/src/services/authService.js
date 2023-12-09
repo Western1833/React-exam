@@ -2,12 +2,12 @@ import { PATHS } from "../utils/utils.js";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export async function login({ email, password }) {
+export async function login({email, password}) {
     try {
         const response = await fetch(`${PATHS.baseUrl}${PATHS.login}`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({email, password})
         });
 
         if (response.status === 403) {
@@ -17,6 +17,10 @@ export async function login({ email, password }) {
         if (!response.ok) {
             throw new Error('Error while fetching.');
         }
+
+        const result = response.json();
+        
+        return result;
     } catch (err) {
         console.log(err.message);
     }

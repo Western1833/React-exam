@@ -7,3 +7,5 @@ export const PATHS = {
     cars: '/data/cars',
     create: '/data/create',
 }
+
+export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

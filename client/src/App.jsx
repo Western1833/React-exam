@@ -21,7 +21,7 @@ function App() {
       const result = await login(values);
 
       setAuth(result);
-
+      
       navigate(PATHS.home);
     } catch (err) {
       console.log(err);
@@ -40,7 +40,7 @@ function App() {
         const result = await register(values);
 
         setAuth(result);
-
+        
         navigate(PATHS.home);
       } else {
         throw new Error('invalid email!');
@@ -54,6 +54,7 @@ function App() {
     loginSubmitHandler,
     registerSubmitHandler,
     email: auth.email,
+    username: auth.username,
     isAuthenticated: !!auth.email,
   }
 

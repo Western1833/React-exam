@@ -5,7 +5,7 @@ export async function login({ email, password }) {
         const response = await fetch(`${PATHS.baseUrl}${PATHS.login}`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email,  password })
         });
 
         if (response.status === 403) {
@@ -23,12 +23,12 @@ export async function login({ email, password }) {
     }
 }
 
-export async function register({ email, password, repeatPassword }) {
+export async function register({ email, username, password,  }) {
     try {
         const response = await fetch(`${PATHS.baseUrl}${PATHS.register}`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email, username, password })
         });
 
         if (!response.ok) {

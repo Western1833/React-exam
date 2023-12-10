@@ -7,7 +7,7 @@ import { useContext } from "react";
 import AuthContext from "../../contexts/authContext.js";
 
 export default function Header() {
-  const {email, isAuthenticated} = useContext(AuthContext);
+  const {isAuthenticated, username} = useContext(AuthContext);
 
   return (
     <header>
@@ -15,20 +15,22 @@ export default function Header() {
         <Container>
           <Navbar.Brand as={Link} to={PATHS.home} className="fs-4">CarSpecs</Navbar.Brand>
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to={PATHS.home} className="fs-4">Home</Nav.Link>
-            <Nav.Link as={Link} to={PATHS.cars} className="fs-4">Cars</Nav.Link>
-            {isAuthenticated ? (
+              {isAuthenticated ? (
+                <span style={{ marginRight: '10px', color: 'white', fontSize: '1.3em', lineHeight: '2.5', marginLeft: '10px', display: 'inline-block', verticalAlign: 'middle' }}>{`Hello, ${username}!`}</span>
+              ): ''}
+              <Nav.Link as={Link} to={PATHS.home} className="fs-4">Home</Nav.Link>
+              <Nav.Link as={Link} to={PATHS.cars} className="fs-4">Cars</Nav.Link>
+              {isAuthenticated ? (
+                <>
+                  <Nav.Link as={Link} to={PATHS.logout} className="fs-4">Logout</Nav.Link>
+                  <Nav.Link as={Link} to={PATHS.create} className="fs-4">Add car</Nav.Link>
+                </>
+              )
+              : 
               <>
-                <Nav.Link as={Link} to={PATHS.logout} className="fs-4">Logout</Nav.Link>
-                <Nav.Link as={Link} to={PATHS.create} className="fs-4">Add car</Nav.Link>
-                <span style={{ color: 'white', fontSize: '1.3em', lineHeight: '2.5', marginLeft: '10px', display: 'inline-block', verticalAlign: 'middle' }}>{email}</span>
+                <Nav.Link as={Link} to={PATHS.login} className="fs-4">Login</Nav.Link>
+                <Nav.Link as={Link} to={PATHS.register} className="fs-4">Register</Nav.Link>
               </>
-            )
-            : 
-            <>
-              <Nav.Link as={Link} to={PATHS.login} className="fs-4">Login</Nav.Link>
-              <Nav.Link as={Link} to={PATHS.register} className="fs-4">Register</Nav.Link>
-            </>
             }
           </Nav>
         </Container>

@@ -8,6 +8,7 @@ export default function RegisterForm() {
 
     const {values, onChange, onSubmit} = useForm(registerSubmitHandler, {
         email: '',
+        username: '',
         password: '',
         repeatPassword: ''
     });
@@ -16,13 +17,23 @@ export default function RegisterForm() {
         <form className={styles['register']} onSubmit={onSubmit}>
             <h3>Register Here</h3>
 
-            <label htmlFor="username">Email</label>
+            <label htmlFor="email">Email</label>
             <input
             type="text"
             placeholder="Email"
             id="email"
             name='email'
             value={values.email}
+            onChange={onChange}
+            />
+
+            <label htmlFor="username">Username</label>
+            <input
+            type="text"
+            placeholder="Username"
+            id="username"
+            name='username'
+            value={values.username}
             onChange={onChange}
             />
 
@@ -45,7 +56,6 @@ export default function RegisterForm() {
             value={values.repeatPassword}
             onChange={onChange}
             />
-
         <button>Register</button>
     </form>
     );

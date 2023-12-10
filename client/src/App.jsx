@@ -9,8 +9,8 @@ import Cars from './components/Cars/Cars.jsx';
 import CarCreate from './components/Create/CarCreate.jsx';
 import { useState } from 'react';
 import AuthContext from './contexts/authContext.js';
-import { PATHS } from './utils/utils.js';
-import { login } from './services/authService.js';
+import { PATHS, emailRegex } from './utils/utils.js';
+import { login, register } from './services/authService.js';
 
 function App() {
   const navigate = useNavigate();
@@ -29,11 +29,28 @@ function App() {
   }
 
   const registerSubmitHandler = async (values) => {
-    console.log(values);
-    try{
-
-    }catch(err){
-
+    try {
+      if(values.email){
+        if (values.password.length < 3 && values.repeatPassword.length < 3) {
+          throw new Error('Password too short, minimum 3 characters.');
+        } else if (values.password !== values.repeatPassword) {
+          throw new Error('Password missmatch!');
+        }
+  
+        if (emailRegex.test(values.email)) {
+          const result = await register(values);
+  
+          setAuth(result);
+  
+          navigate(PATHS.home);
+        }else{
+          throw new Error('invalid email!');
+        }
+      }else{
+        throw new Error('Please enter email.');
+      }
+    } catch (err) {
+      console.log(err);
     }
   }
 

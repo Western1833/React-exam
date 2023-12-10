@@ -1,8 +1,5 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import styles from '../loginAndRegister.module.css';
-import { register } from '../../../services/authService.js';
-import { useNavigate } from 'react-router-dom';
-import { PATHS } from '../../../utils/utils.js';
 import AuthContext from '../../../contexts/authContext.js';
 import useForm from '../../../hooks/useForm.js';
 
@@ -14,30 +11,6 @@ export default function RegisterForm() {
         password: '',
         repeatPassword: ''
     });
-    const navigate = useNavigate();
-
-    const changeHandler = (e) => {
-        setFormValues(state => ({
-            ...state,
-            [e.target.name]: e.target.value
-        }));
-    }
-
-    const onRegisterHandler = async (e) => {
-        e.preventDefault();
-
-        
-        try{
-            if(formValues.password !== formValues.repeatPassword){
-                throw new Error("Passwords don't match!");
-            }
-            await register(formValues);
-
-            navigate(PATHS.login);
-        }catch(err){
-            console.log(err.message);
-        }
-    }
 
     return (
         <form className={styles['register']} onSubmit={onSubmit}>

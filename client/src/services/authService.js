@@ -34,6 +34,9 @@ export async function register({ email, password, repeatPassword }) {
         if (!response.ok) {
             throw new Error('Error while fetching.');
         }
+
+        const result = response.json();
+        return result;
     } catch (err) {
         console.log(err.message);
     }

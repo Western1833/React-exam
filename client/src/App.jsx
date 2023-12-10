@@ -30,24 +30,20 @@ function App() {
 
   const registerSubmitHandler = async (values) => {
     try {
-      if(values.email){
-        if (values.password.length < 3 && values.repeatPassword.length < 3) {
-          throw new Error('Password too short, minimum 3 characters.');
-        } else if (values.password !== values.repeatPassword) {
-          throw new Error('Password missmatch!');
-        }
-  
-        if (emailRegex.test(values.email)) {
-          const result = await register(values);
-  
-          setAuth(result);
-  
-          navigate(PATHS.home);
-        }else{
-          throw new Error('invalid email!');
-        }
-      }else{
-        throw new Error('Please enter email.');
+      if (values.password.length < 3 || values.repeatPassword.length < 3) {
+        throw new Error('Password too short, minimum 3 characters.');
+      } else if (values.password !== values.repeatPassword) {
+        throw new Error('Password missmatch!');
+      }
+
+      if (emailRegex.test(values.email)) {
+        const result = await register(values);
+
+        setAuth(result);
+
+        navigate(PATHS.home);
+      } else {
+        throw new Error('invalid email!');
       }
     } catch (err) {
       console.log(err);

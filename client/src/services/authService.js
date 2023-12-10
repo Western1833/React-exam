@@ -41,3 +41,10 @@ export async function register({ email, username, password,  }) {
         console.log(err.message);
     }
 }
+
+export async function logout(accessToken){
+    await fetch(`${PATHS.baseUrl}${PATHS.logout}`, {
+        method: 'GET',
+        headers: {'X-Authorization': accessToken}
+    });
+}

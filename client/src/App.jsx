@@ -11,6 +11,7 @@ import { useState } from 'react';
 import AuthContext from './contexts/authContext.js';
 import { PATHS, emailRegex } from './utils/utils.js';
 import { login, register } from './services/authService.js';
+import LogoutComponent from './components/Authorization/Logout/Logout.jsx';
 
 function App() {
   const navigate = useNavigate();
@@ -50,12 +51,19 @@ function App() {
     }
   }
 
+  const logoutHandler = () => {
+    setAuth({});
+    navigate(PATHS.home);
+  }
+
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     email: auth.email,
     username: auth.username,
-    isAuthenticated: !!auth.email,
+    accessToken: auth.accessToken,
+    isAuthenticated: !!auth.accessToken,
   }
 
   return (
@@ -68,6 +76,7 @@ function App() {
           <Route path={PATHS.register} element={<Registration />} />
           <Route path={PATHS.login} element={<Login />} />
           <Route path={PATHS.create} element={<CarCreate />} />
+          <Route path={PATHS.logout} element={<LogoutComponent />} />
         </Routes>
         <Footer />
       </div>

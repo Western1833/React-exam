@@ -5,7 +5,7 @@ export async function login({ email, password }) {
         const response = await fetch(`${PATHS.baseUrl}${PATHS.login}`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ email,  password })
+            body: JSON.stringify({ email, password })
         });
 
         if (response.status === 403) {
@@ -42,9 +42,11 @@ export async function register({ email, username, password,  }) {
     }
 }
 
-export async function logout(accessToken){
+export async function logout(){
+    const token = localStorage.getItem('accessToken');
+
     await fetch(`${PATHS.baseUrl}${PATHS.logout}`, {
         method: 'GET',
-        headers: {'X-Authorization': accessToken}
+        headers: {'X-Authorization': token}
     });
 }

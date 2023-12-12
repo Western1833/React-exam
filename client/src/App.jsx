@@ -15,13 +15,19 @@ import LogoutComponent from './components/Authorization/Logout/Logout.jsx';
 
 function App() {
   const navigate = useNavigate();
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useState(() => {
+    localStorage.removeItem('accessToken');
+
+    return {};
+  });
 
   const loginSubmitHandler = async (values) => {
     try {
       const result = await login(values);
 
       setAuth(result);
+
+      localStorage.setItem('accessToken', result.accessToken);
       
       navigate(PATHS.home);
     } catch (err) {
@@ -41,6 +47,8 @@ function App() {
         const result = await register(values);
 
         setAuth(result);
+
+        localStorage.setItem('accessToken', result.accessToken);
         
         navigate(PATHS.home);
       } else {
@@ -53,6 +61,7 @@ function App() {
 
   const logoutHandler = () => {
     setAuth({});
+    localStorage.removeItem('accessToken');
     navigate(PATHS.home);
   }
 
@@ -62,7 +71,6 @@ function App() {
     logoutHandler,
     email: auth.email,
     username: auth.username,
-    accessToken: auth.accessToken,
     isAuthenticated: !!auth.accessToken,
   }
 

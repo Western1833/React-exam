@@ -6,11 +6,11 @@ import AuthContext from "../../../contexts/authContext.js";
 
 export default function LogoutComponent(){
     const navigation = useNavigate();
-    const {logoutHandler, accessToken} = useContext(AuthContext);
+    const {logoutHandler} = useContext(AuthContext);
 
     useEffect(() => {
-        logout(accessToken)
+        logout()
         .then(()=> logoutHandler())
         .catch(()=> navigation(PATHS.home))
-    });
+    }, []);
 }

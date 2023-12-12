@@ -1,7 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import { create } from '../../services/carServices.js';
 import './CarCreate.css';
+import { PATHS } from '../../utils/utils.js';
 
 export default function CarCreate(){
+    const navigate = useNavigate();
 
     const onCreateCarHandler = async (e) => {
         e.preventDefault();
@@ -9,6 +12,8 @@ export default function CarCreate(){
         const data = Object.fromEntries(new FormData(e.target));
 
         await create(data);
+
+        navigate(PATHS.cars);
     }
 
     return(

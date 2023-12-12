@@ -1,5 +1,5 @@
+import { useNavigate } from "react-router-dom";
 import { PATHS } from "../utils/utils.js";
-
 
 export const getAllCars = async () => {
     try{
@@ -18,11 +18,13 @@ export const getAllCars = async () => {
     }
 }
 
-export const create = async (data) => {
+export const create = async (data) => {  
+    const token = localStorage.getItem('accessToken');
+
     try{
         const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}`, {
             method: 'POST',
-            headers: {'content-type': 'application/json'},
+            headers: {'X-authorization': token},
             body: JSON.stringify(data)
         });
 

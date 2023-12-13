@@ -5,7 +5,8 @@ export default function CarInfoCard({
     imageUrl,
     brand,
     model,
-    price
+    price,
+    year
 }) {
     return (
         <Card style={{ width: '18rem', backgroundColor: "#C0C0C0" }}>
@@ -22,6 +23,9 @@ export default function CarInfoCard({
                 <Card.Title>{brand}</Card.Title>
                 <Card.Text>
                     {model}
+                </Card.Text>
+                <Card.Text>
+                    {year}
                 </Card.Text>
                 <Card.Text>
                     Price: {price} BGN

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import CarInfoCar from '../Card/Card.jsx';
 import * as gameService from '../../services/carServices.js';
 import './Cars.css';
+import SearchField from '../Search/Search.jsx';
 
 export default function Cars() {
     const [cars, setCars] = useState([]);;
@@ -16,6 +17,10 @@ export default function Cars() {
 
     return (
         <div className="cars-page">
+             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <p style={{ fontSize: '24px', color: 'white', marginRight: '10px' }}>Search by Brand:</p>
+                <SearchField />
+            </div>
             {cars.length && (
                 <>
                     <div className='title'>

@@ -23,6 +23,7 @@ export default function RegisterForm() {
             placeholder="Email"
             id="email"
             name='email'
+            autoComplete="email"
             value={values.email}
             onChange={onChange}
             />
@@ -33,6 +34,7 @@ export default function RegisterForm() {
             placeholder="Username"
             id="username"
             name='username'
+            autoComplete="username"
             value={values.username}
             onChange={onChange}
             />
@@ -43,16 +45,18 @@ export default function RegisterForm() {
             placeholder="Password"
             id="password"
             name='password'
+            autoComplete="current-password"
             value={values.password}
             onChange={onChange}
             />
 
-            <label htmlFor="password">Repeat Password</label>
+            <label htmlFor="re-password">Repeat Password</label>
             <input
             type="password"
             placeholder="Repeat Password"
             id="re-password"
             name='repeatPassword'
+            autoComplete="current-password"
             value={values.repeatPassword}
             onChange={onChange}
             />

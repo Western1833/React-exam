@@ -20,16 +20,20 @@ export const getAllCars = async () => {
 
 export const create = async (data) => {  
     const token = localStorage.getItem('accessToken');
-
+    const { imageUrl, brand, model, fuelType, price, phoneNumber } = data;
     try{
-        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}`, {
-            method: 'POST',
-            headers: {'X-authorization': token},
-            body: JSON.stringify(data)
-        });
+        if(!imageUrl || !brand || !model || !fuelType || !price || !phoneNumber){
+            throw new Error('Empty fields');
+        }else{
+            const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}`, {
+                method: 'POST',
+                headers: {'X-authorization': token},
+                body: JSON.stringify(data)
+            });
 
-        if(!request.ok){
-            throw new Error('Error while fetching:');
+            if(!request.ok){
+                throw new Error('Error while fetching:');
+            }
         }
     }catch(err){
         console.log(err.message);

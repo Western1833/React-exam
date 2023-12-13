@@ -22,6 +22,7 @@ export default function LoginForm(){
         placeholder="Email"
         id="email"
         name='email'
+        autoComplete="email"
         value={values.email}
         onChange={onChange}
         />
@@ -32,6 +33,7 @@ export default function LoginForm(){
         placeholder="Password"
         id="password"
         name='password'
+        autoComplete="current-password"
         value={values.password}
         onChange={onChange}
         />

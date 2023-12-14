@@ -20,9 +20,9 @@ export const getAllCars = async () => {
 
 export const create = async (data) => {  
     const token = localStorage.getItem('accessToken');
-    const { imageUrl, brand, model, fuelType, price, phoneNumber } = data;
+    const { imageUrl, brand, model, price, phoneNumber } = data;
     try{
-        if(!imageUrl || !brand || !model || !fuelType || !price || !phoneNumber){
+        if(!imageUrl || !brand || !model  || !price || !phoneNumber){
             throw new Error('Empty fields');
         }else{
             const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}`, {

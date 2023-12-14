@@ -9,3 +9,7 @@ export const PATHS = {
 }
 
 export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export const randomNumber = () => {
+    return Math.random(1,10000);
+}

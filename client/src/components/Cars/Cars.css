@@ -1,59 +1,92 @@
 .cars-page {
-    display: flex;
-    flex-direction: column;
-    min-height: 838px;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 838px;
+}
 
-  .cars-page {
-    background-image: url('/images/black-concrete-wall.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  
-  .title {
-    text-align: center;
-  }
+.cars-page {
+  background-image: url('/images/black-concrete-wall.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-  .title h1 {
-    color: whitesmoke;
-  }
-  
+.title {
+  text-align: center;
+}
+
+.title h1 {
+  color: whitesmoke;
+}
+
+.car-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1400px;
+  gap: 40px;
+}
+
+@media (min-width: 768px) {
   .car-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0 auto;
-    max-width: 1400px;
-    gap: 40px;
+    justify-content: space-around;
+    /* Change justify-content to space-around for larger screens */
   }
-  
-  @media (min-width: 768px) {
-    .car-list {
-      justify-content: space-around; /* Change justify-content to space-around for larger screens */
-    }
-  }
-  
-  .noCarsMessage {
-    text-align: center;
-    font-size: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    color: aliceblue;
-  }
-  
+}
 
-  .CarInfoCard {
-    width: 18rem;
-  }
+.noCarsMessage {
+  text-align: center;
+  font-size: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  color: aliceblue;
+}
 
-  .CarInfoCard img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-  
-  
+
+.CarInfoCard {
+  width: 18rem;
+}
+
+.CarInfoCard img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.searchWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.searchDiv {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.searchDiv p {
+  font-size: 30px;
+  color: white;
+  margin-right: 20px;
+}
+
+#brandSelect {
+  width: 200px;
+  height: 50px;
+}
+
+#submitSearchBtn {
+  height: 50px;
+  width: 100px;
+  margin: 20px;
+  color: white;
+  background-color: #0d6efd;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

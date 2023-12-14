@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import { PATHS } from "../../utils/utils.js";
 import { useContext } from "react";
-import AuthContext from "../../contexts/authContext.js";
+import AuthContext from "../../contexts/authContext.jsx";
 
 export default function Header() {
   const {isAuthenticated, username} = useContext(AuthContext);

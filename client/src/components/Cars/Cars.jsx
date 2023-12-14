@@ -30,10 +30,10 @@ export default function Cars() {
 
     return (
         <div className="cars-page">
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: "space-between", height: '100px' }}>
-                    <p style={{ fontSize: '30px', color: 'white', marginRight: '20px' }}>Search:</p>
-                    <select id="brandSelect" style={{ width: '200px', height: '50px' }} onChange={handleBrandChange}>
+            <div className='searchWrapper'>
+                <div className='searchDiv'>
+                    <p>Search:</p>
+                    <select id="brandSelect" onChange={handleBrandChange}>
                         <option value="">Select a brand</option>
                         <option value="Audi">Audi</option>
                         <option value="BMW">BMW</option>
@@ -53,17 +53,7 @@ export default function Cars() {
                         <option value="VW">VW</option>
                     </select>
 
-                    <button style={{
-                        height: '50px',
-                        width: '100px',
-                        margin: '20px',
-                        color: 'white',
-                        backgroundColor: "#0d6efd",
-                        fontSize: '20px',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }} onClick={searchHandler}>
+                    <button id='submitSearchBtn' onClick={searchHandler}>
                         Search
                     </button>
                 </div>

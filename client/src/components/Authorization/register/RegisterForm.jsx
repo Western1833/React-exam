@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styles from '../loginAndRegister.module.css';
-import AuthContext from '../../../contexts/authContext.js';
+import AuthContext from '../../../contexts/authContext.jsx';
 import useForm from '../../../hooks/useForm.js';
 
 export default function RegisterForm() {

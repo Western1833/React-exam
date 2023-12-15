@@ -1,5 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { PATHS } from '../../utils/utils.js';
+import { Link } from 'react-router-dom'; 
 
 export default function CarInfoCard({
     imageUrl,
@@ -11,14 +13,14 @@ export default function CarInfoCard({
     return (
         <Card style={{ width: '18rem', backgroundColor: "#C0C0C0" }}>
             <Card.Img
-  variant="top"
-  src={imageUrl}
-  style={{
-    objectFit: "cover",
-    width: "100%",
-    height: "100%",
-  }}
-/>
+                variant="top"
+                src={imageUrl}
+                style={{
+                    objectFit: "cover",
+                    width: "100%",
+                    height: "100%",
+                }}
+            />
             <Card.Body>
                 <Card.Title>{brand}</Card.Title>
                 <Card.Text>
@@ -30,7 +32,9 @@ export default function CarInfoCard({
                 <Card.Text>
                     Price: {price} BGN
                 </Card.Text>
-                <Button variant="primary">Details</Button>
+                <Link to={PATHS.details}>
+                    <Button variant="primary">Details</Button>
+                </Link>
             </Card.Body>
         </Card>
     );

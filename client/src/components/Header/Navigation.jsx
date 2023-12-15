@@ -23,6 +23,7 @@ export default function Header() {
               {isAuthenticated ? (
                 <>
                   <Nav.Link as={Link} to={PATHS.logout} className="fs-4">Logout</Nav.Link>
+                  <Nav.Link as={Link} to={PATHS.myCars} className="fs-4">My cars</Nav.Link>
                   <Nav.Link as={Link} to={PATHS.create} className="fs-4">Add car</Nav.Link>
                 </>
               )

@@ -6,6 +6,8 @@ export const PATHS = {
     logout: '/users/logout',
     cars: '/data/cars',
     create: '/data/create',
+    details: '/data/cars/:id',
+    myCars: '/data/myCars',
 }
 
 export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

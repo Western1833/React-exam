@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { PATHS } from "../utils/utils.js";
 
 export const getAllCars = async () => {
@@ -35,6 +34,21 @@ export const create = async (data) => {
                 throw new Error('Error while fetching:');
             }
         }
+    }catch(err){
+        console.log(err.message);
+    }
+}
+
+export async function myCarsService(userId){
+    try{
+        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}?where=_ownerId%3D%22${userId}%22`);
+
+        if(!request.ok){
+            throw new Error('Error: could not find searched value.');
+        }
+
+        const result = request.json();
+        return result;
     }catch(err){
         console.log(err.message);
     }

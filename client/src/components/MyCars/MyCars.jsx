@@ -6,8 +6,6 @@ import { search } from '../../services/searchService.js';
 
 export default function MyCars() {
     const [cars, setCars] = useState([]);
-    const [currentCarBrand, setCarBrand] = useState('');
-    const [searchResult, setSearchResult] = useState([]);
 
     const userId = JSON.parse(localStorage.getItem('auth'));
 
@@ -20,60 +18,17 @@ export default function MyCars() {
             });
     }, []);
 
-    const handleBrandChange = (e) => {
-        const carBrand = e.target.value;
-        setCarBrand(carBrand);
-    }
-
-    const searchHandler = async () => {
-        const result = await search(currentCarBrand);
-
-        setSearchResult(result);
-    }
-
     return (
         <div className="cars-page">
-            <div className='searchWrapper'>
-                <div className='searchDiv'>
-                    <p>Search:</p>
-                    <select id="brandSelect" onChange={handleBrandChange}>
-                        <option value="">Select a brand</option>
-                        <option value="Audi">Audi</option>
-                        <option value="BMW">BMW</option>
-                        <option value="Citroen">Citroen</option>
-                        <option value="Dacia">Dacia</option>
-                        <option value="Fiat">Fiat</option>
-                        <option value="Hyundai">Hyundai</option>
-                        <option value="Jaguar">Jaguar</option>
-                        <option value="Kia">Kia</option>
-                        <option value="Lexus">Lexus</option>
-                        <option value="Mercedes-Benz">Mercedes-Benz</option>
-                        <option value="Nissan">Nissan</option>
-                        <option value="Opel">Opel</option>
-                        <option value="Porsche">Porsche</option>
-                        <option value="Renault">Renault</option>
-                        <option value="Skoda">Skoda</option>
-                        <option value="VW">VW</option>
-                    </select>
-
-                    <button id='submitSearchBtn' onClick={searchHandler}>
-                        Search
-                    </button>
-                </div>
+            <div className='title'>
+                <h1 className="head">My cars</h1>
             </div>
             {cars.length && (
                 <>
-                    <div className='title'>
-                        <h1 className="head">My cars</h1>
-                    </div>
                     <div className="car-list">
-                        {searchResult.length ?
-                            searchResult.map(car => (
-                                <CarInfoCar key={car._id} {...car} />
-                            )) :
-                            cars.map(car => (
-                                <CarInfoCar key={car._id} {...car} />
-                            ))
+                        {cars.map(car => (
+                            <CarInfoCar key={car._id} {...car} />
+                        ))
                         }
                     </div>
                 </>

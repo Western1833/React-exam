@@ -45,3 +45,13 @@
   align-items: center;
   justify-content: center;
 }
+
+.buttonsDiv {
+  display: flex; /* Display buttons in a row */
+  gap: 10px; /* Adjust the spacing between buttons */
+}
+
+.buttonsDiv > * {
+  flex: 1; /* Distribute available space equally among buttons */
+  width: 50%; /* Adjust the width of the buttons */
+}

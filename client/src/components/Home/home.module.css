@@ -35,26 +35,33 @@
     margin-bottom: 0;
   }
 
-  .car-list{
+  .car-list {
     position: absolute;
     height: 500px;
     top: 40%; /* Adjust the vertical position of the text */
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
     width: 52%;
     z-index: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center; /* Aligns items horizontally at the center */
+    justify-content: center;
     background-color: rgba(128, 128, 128, 0.5);
     border-radius: 15px;
-  }
+}
 
-  .car-list h3{
-    font-size: 3rem; /* Adjust the font size of the h3 */
-    color: #0d6efd;
-    -webkit-text-stroke: 1px black; /* Adds a black outline around the text for WebKit-based browsers */
+#par{
+  font-size: 26px;
+  color: black;
+  text-align: center;
+  margin-top: 20px;
+}
+
+  .car-list h2{
+    font-size: 2rem; /* Adjust the font size of the h3 */
+    color: black;
+    /* -webkit-text-stroke: 0.3px white; Adds a black outline around the text for WebKit-based browsers */
     margin-bottom: 5px; /* Adjust margin as needed */
     align-items: center;
   }
@@ -65,8 +72,8 @@
     margin-bottom: 5px; /* Adjust margin as needed */
   }
 
-  .car-list h3 a{
-    font-size: 3rem; /* Adjust the font size of the h3 */
+  .car-list h2 a{
+    font-size: 2rem; /* Adjust the font size of the h3 */
     color: crimson;
     -webkit-text-stroke: 1px black; /* Adds a black outline around the text for WebKit-based browsers */
     margin-bottom: 0;

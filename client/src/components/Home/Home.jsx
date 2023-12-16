@@ -18,19 +18,28 @@ export default function Home() {
     return (
         <>
             <section className={styles['car-specs']}>
-                {cars.length ? (
-                    <div className={styles['car-list']}>
-                        <p style={{fontSize: '26px', color: 'black'}}><b>Lastly added cars:</b></p>
-                        {cars.map(car => (
-                            <CarInfoCard key={car._id} {...car} />
-                        ))}
-                    </div>
-                )
-                : 
-                    (<div className={styles['car-list']}>
-                        <h3>There are no cars added yet, click <a href={PATHS.create}>Here</a> to add a car.</h3>
-                    </div>)
-                }
+                    {cars.length ? (
+                        <>
+                            <p style={{
+                                fontSize: '26px',
+                                color: 'black',
+                                textAlign: 'center',
+                                marginTop: '20px' /* Adjust the top margin to position it */
+                            }}>
+                                <b>Lastly added cars:</b>
+                            </p>
+                            <div className={styles['car-list']}>
+                                {cars.map(car => (
+                                    <CarInfoCard key={car._id} {...car} />
+                                ))}
+                            </div>
+                        </>
+                    )
+                        :
+                        (<div className={styles['car-list']}>
+                            <h2>There are no cars added yet, click <a href={PATHS.create}>Here</a> to add a car.</h2>
+                        </div>)
+                    }
                 <img className={styles['car-image']} src="./images/main-page-car.jpg" alt="" />
             </section>
         </>

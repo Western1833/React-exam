@@ -1,28 +1,42 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import styles from '../Details/details.css';
+import styles from '../Details/details.module.css';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import * as carsService from '../../services/carServices.js';
 
-export function Details(props) {
+export function Details() {
+    const {id} = useParams();
+    const [car, setCar] = useState([]);
+
+    useEffect(() => {
+        carsService.getSingleCar(id)
+        .then(result => setCar(result))
+        .catch(err => {
+            console.log(err);
+        })
+    }, [id]);
+
+    console.log(car);
     return (
-        <div className={{backgroundImage: '/images/black-concrete-wall.jpg'}}>
-            <Card className={styles.largerCard} >
-                <Card.Img variant="top" src="holder.js/100px180"/>
+            <Card className={styles.carInfoCard} >
+                <Card.Img className={styles.cardImage} variant="top" src={car.imageUrl}/>
                 <Card.Body>
                     <Card.Text>
-                        Brand:
+                        Brand: {car.brand}
                     </Card.Text>
                     <Card.Text>
-                        Model:
+                        Model: {car.model}
                     </Card.Text>
                     <Card.Text>
-                        Year:
+                        Year: {car.year}
                     </Card.Text>
                     <Card.Text>
-                        Price:
+                        Price: {car.price}
                     </Card.Text>
                     <Card.Text>
-                        Phone number:
+                        Phone number: {car.phoneNumber}
                     </Card.Text>
                     {/* Use Link to navigate to a specific path */}
                     {/* <Link to="/your-path">
@@ -30,6 +44,5 @@ export function Details(props) {
               </Link> */}
                 </Card.Body>
             </Card>
-        </div>
     );
 }

@@ -19,7 +19,7 @@ export default function CarInfoCard({
                 src={imageUrl}
                 className={styles.cardImage}
             />
-            <Card.Body>
+            <Card.Body className={styles.cardBody}>
                 <Card.Title>{brand}</Card.Title>
                 <Card.Text>
                     {model}

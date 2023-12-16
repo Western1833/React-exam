@@ -14,6 +14,7 @@ import CarCreate from './components/Create/CarCreate.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import { Details } from './components/Details/Details.jsx';
 import MyCars from './components/MyCars/MyCars.jsx';
+import DetailsMain from './components/Details/DetailsMain.jsx';
 
 function App() {
   
@@ -28,7 +29,7 @@ function App() {
           <Route path={PATHS.login} element={<Login />} />
           <Route path={PATHS.create} element={<CarCreate />} />
           <Route path={PATHS.logout} element={<LogoutComponent />} />
-          <Route path={`${PATHS.details}/:id`} element={<Details />} />
+          <Route path={`${PATHS.details}/:id`} element={<DetailsMain />} />
           <Route path={PATHS.myCars} element={<MyCars />} />
         </Routes>
         <Footer />

@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { PATHS } from '../../utils/utils.js';
 import { Link } from 'react-router-dom';
-import styles from '../Card/card.module.css';
+import styles from './card.module.css';
 
 export default function CarInfoCard({
     imageUrl,
@@ -10,7 +10,7 @@ export default function CarInfoCard({
     model,
     price,
     year,
-    _id
+    _id,
 }) {
     return (
         <Card className={styles.carInfoCard}>

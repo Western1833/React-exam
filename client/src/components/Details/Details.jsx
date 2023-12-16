@@ -10,6 +10,10 @@ export function Details() {
     const {id} = useParams();
     const [car, setCar] = useState([]);
 
+    const currentUser = localStorage.getItem('auth');
+    const isCreator = car._ownerId === currentUser._id;
+
+    
     useEffect(() => {
         carsService.getSingleCar(id)
         .then(result => setCar(result))
@@ -17,8 +21,9 @@ export function Details() {
             console.log(err);
         })
     }, [id]);
-
-    console.log(car);
+    
+    console.log(isCreator);
+    
     return (
             <Card className={styles.carInfoCard} >
                 <Card.Img className={styles.cardImage} variant="top" src={car.imageUrl}/>

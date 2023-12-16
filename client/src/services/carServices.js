@@ -53,3 +53,20 @@ export async function myCarsService(userId){
         console.log(err.message);
     }
 }
+
+export async function getSingleCar(id){
+    try{
+        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}/${id}`);
+        
+        if(!request.ok){
+            throw new Error('Error while fetching data:');
+        }
+
+        const result = await request.json();
+
+        return result;
+    }catch(err){
+        console.log(err.message);
+        return [];
+    }
+}

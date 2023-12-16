@@ -28,7 +28,7 @@ function App() {
           <Route path={PATHS.login} element={<Login />} />
           <Route path={PATHS.create} element={<CarCreate />} />
           <Route path={PATHS.logout} element={<LogoutComponent />} />
-          <Route path={PATHS.details} element={<Details />} />
+          {/* <Route path={`${PATHS.details}/:id`} element={<Details />} /> */}
           <Route path={PATHS.myCars} element={<MyCars />} />
         </Routes>
         <Footer />

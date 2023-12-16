@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import CarInfoCar from '../Card/Card.jsx';
 import * as gameService from '../../services/carServices.js';
 import './myCarsStyles.css';
-import { search } from '../../services/searchService.js';
 
 export default function MyCars() {
     const [cars, setCars] = useState([]);

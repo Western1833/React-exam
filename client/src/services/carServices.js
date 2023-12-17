@@ -89,3 +89,20 @@ export async function editCar(id, carData) {
         console.log(err.message);
     }
 }
+
+export async function deleteCar(id){
+    const token = localStorage.getItem('accessToken');
+
+    try {
+        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}/${id}`, {
+            method: 'PUT',
+            headers: { 'X-authorization': token }
+        });
+
+        if (!request.ok) {
+            throw new Error('Error while fetching:');
+        }
+    } catch (err) {
+        console.log(err.message);
+    }
+}

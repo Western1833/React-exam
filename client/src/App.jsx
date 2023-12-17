@@ -12,9 +12,9 @@ import LogoutComponent from './components/Authorization/Logout/Logout.jsx';
 import Cars from './components/Cars/Cars.jsx';
 import CarCreate from './components/Create/CarCreate.jsx';
 import Footer from './components/Footer/Footer.jsx';
-import { Details } from './components/Details/Details.jsx';
 import MyCars from './components/MyCars/MyCars.jsx';
 import DetailsMain from './components/Details/DetailsMain.jsx';
+import EditCar from './components/Edit/Edit.jsx';
 
 function App() {
   
@@ -30,6 +30,7 @@ function App() {
           <Route path={PATHS.create} element={<CarCreate />} />
           <Route path={PATHS.logout} element={<LogoutComponent />} />
           <Route path={`${PATHS.details}/:id`} element={<DetailsMain />} />
+          <Route path={`${PATHS.details}/:id/edit`} element={<EditCar />} />
           <Route path={PATHS.myCars} element={<MyCars />} />
         </Routes>
         <Footer />

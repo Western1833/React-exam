@@ -1,0 +1,81 @@
+/* CarCreate.css */
+
+/* Style the section */
+#create-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Reduced height of the background */
+    background-image: url('/images/black-concrete-wall.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+  }
+
+  .label{
+    color: black;
+  }
+
+  h1{
+    color: black;
+    text-align: center;
+  }
+  
+  /* Style the form container */
+  .container2 {
+    width: 600px ; /* Adjusted width of the form */
+    padding: 20px;
+    background-color: rgba(162, 158, 158, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style the form inputs and select */
+  select {
+    width: calc(100% - 22px);
+    padding: 8px;
+    margin: 4px 0;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: black;
+  }
+
+  .input{
+    width: calc(100% - 22px);
+    padding: 8px;
+    margin: 4px 0;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: black;
+  }
+
+  select option{
+    color: black;
+    font-size: 20px;
+  }
+
+  select{
+    font-size: 20px;
+  }
+  
+  /* Style the submit button */
+  .submitBtn {
+    width: 45%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+  
+  /* Make the form responsive */
+  @media screen and (max-width: 600px) {
+    .container {
+      max-width: 90%;
+    }
+  }
+  

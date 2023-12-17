@@ -20,7 +20,7 @@ export default function CarCreate(){
         <section id="create-page" >
             <form id="create" onSubmit={onCreateCarHandler}>
                 <div className="container2">
-                    <h1>Create Game</h1>
+                    <h1>Create Car</h1>
                     <label htmlFor="imageUrl" className='label'>Image:</label>
                     <input type="text" className='input' id="imageUrl" name="imageUrl" placeholder="Upload a photo" />
 
@@ -40,7 +40,7 @@ export default function CarCreate(){
                     <label htmlFor="phoneNumber" className='label'>Phone number:</label>
                     <input type="text" className='input' id="phoneNumber" name="phoneNumber" placeholder="Enter phone number..."/>
 
-                    <input className="submitBtn" type="submit" value="Create Game" />
+                    <input className="submitBtn" type="submit" value="Create Car" />
                 </div>
             </form>
         </section>

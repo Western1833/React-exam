@@ -46,18 +46,14 @@ export function Details() {
                 </Card.Text>
                 {isCreator && (
                     <div className={styles.buttonsDiv}>
-                        <Link to="/your-path">
+                        <Link to={`/cars/${id}/edit`}>
                             <Button variant="primary" size="lg">Edit</Button>
                         </Link>
-                        <Link to="/your-path">
+                        <Link to={`/cars/${id}/delete`}>
                             <Button variant="primary" size="lg">Delete</Button>
                         </Link>
                     </div>
                 )}
-                {/* Use Link to navigate to a specific path */}
-                {/* <Link to="/your-path">
-                <Button variant="primary" size="lg">Go somewhere</Button>
-              </Link> */}
             </Card.Body>
         </Card>
     );

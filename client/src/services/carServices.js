@@ -75,7 +75,7 @@ export async function editCar(id, carData) {
     const token = localStorage.getItem('accessToken');
 
     try {
-        const request = await fetch(`${PATHS.details}${id}`, {
+        const request = await fetch(`${PATHS.cars}/${id}`, {
             method: 'PUT',
             headers: { 'X-authorization': token },
             body: JSON.stringify(carData)

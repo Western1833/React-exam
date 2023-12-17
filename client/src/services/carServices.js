@@ -20,6 +20,7 @@ export const getAllCars = async () => {
 export const create = async (data) => {
     const token = localStorage.getItem('accessToken');
     const { imageUrl, brand, model, price, phoneNumber } = data;
+
     try {
         if (!imageUrl || !brand || !model || !price || !phoneNumber) {
             throw new Error('Empty fields');
@@ -75,7 +76,7 @@ export async function editCar(id, carData) {
     const token = localStorage.getItem('accessToken');
 
     try {
-        const request = await fetch(`${PATHS.cars}/${id}`, {
+        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}/${id}`, {
             method: 'PUT',
             headers: { 'X-authorization': token },
             body: JSON.stringify(carData)

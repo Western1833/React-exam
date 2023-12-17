@@ -29,17 +29,6 @@
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
-  
-  /* Style the form inputs and select */
-  select {
-    width: calc(100% - 22px);
-    padding: 8px;
-    margin: 4px 0;
-    border: 1px solid gray;
-    border-radius: 5px;
-    box-sizing: border-box;
-    color: black;
-  }
 
   .input{
     width: calc(100% - 22px);

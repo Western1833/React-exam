@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
 import * as carsService from '../../services/carServices.js';
 import AuthContext from '../../contexts/authContext.jsx';
+import { PATHS } from '../../utils/utils.js';
 
 export function Details() {
     const { id } = useParams();
@@ -44,10 +45,10 @@ export function Details() {
                 </Card.Text>
                 {isCreator && (
                     <div className={styles.buttonsDiv}>
-                        <Link to={`/cars/${id}/edit`}>
+                        <Link to={`${PATHS.details}/${id}/edit`}>
                             <Button variant="primary" size="lg">Edit</Button>
                         </Link>
-                        <Link to={`/cars/${id}/delete`}>
+                        <Link to={`${PATHS.details}/${id}/delete`}>
                             <Button variant="primary" size="lg">Delete</Button>
                         </Link>
                     </div>

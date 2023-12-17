@@ -23,8 +23,6 @@ export function Details() {
             })
     }, [id]);
 
-    console.log(isCreator);
-
     return (
         <Card className={styles.carInfoCard} >
             <Card.Img className={styles.cardImage} variant="top" src={car.imageUrl} />

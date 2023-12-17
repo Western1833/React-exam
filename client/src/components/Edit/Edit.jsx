@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { create, getSingleCar } from '../../services/carServices.js';
+import { create, editCar, getSingleCar } from '../../services/carServices.js';
 import './edit.css';
 import { PATHS } from '../../utils/utils.js';
 import useForm from '../../hooks/useForm.js';
@@ -18,10 +18,10 @@ export default function EditCar() {
             })
     }, [id]);
 
-    const onEditCarHandler = async (value) => {
-        e.preventDefault();
+    const onEditCarHandler = async (values) => {
+        await editCar(values)
 
-        navigate(PATHS.cars)
+        navigate(PATHS.details)
     }
 
     const { values, onChange, onSubmit } = useForm(onEditCarHandler, car);

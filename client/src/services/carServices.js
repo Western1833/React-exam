@@ -65,7 +65,7 @@ export async function getCarsPagination(page) {
     const offset = (page - 1) * pageSize;
 
     try {
-        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}?offset=${offset}&pageSize=${pageSize}`);
+        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}?sortBy=_createdOn desc&offset=${offset}&pageSize=${pageSize}`);
 
         if (!request.ok) {
             throw new Error('Error: could not find searched value.');

@@ -53,6 +53,9 @@ export default function MyCars() {
                 <p className='noCarsMessage'>No cars added yet.</p>
             )}
            
-        </div>
+           <div className='pagination'>
+                    <PaginationComponent onPageChange={handlePageChange} length={carsLength.length} activePage={currentPage} />
+                </div>
+            </div>
     );
 }

@@ -5,7 +5,7 @@ import './Cars.css';
 import { search } from '../../services/searchService.js';
 import { PaginationComponent } from '../Pagination/Pagination.jsx';
 
-export default function Cars(a) {
+export default function Cars() {
     const [cars, setCars] = useState([]);
     const [carsLength, setCarsLength] = useState(0);
     const [currentCarBrand, setCarBrand] = useState('');
@@ -39,7 +39,7 @@ export default function Cars(a) {
         if (carBrand === '') {
             setCarBrand('');
             setSearchResult([]);
-          }
+        }
     }
 
     const searchHandler = async () => {
@@ -80,9 +80,15 @@ export default function Cars(a) {
             </div>
             {cars.length && (
                 <>
-                    <div className='title'>
-                        <h1 className="head">All Cars</h1>
-                    </div>
+                    {searchResult.length ?
+                        <div className='title'>
+                            <h1 className="head">Searched Cars</h1>
+                        </div> :
+                        <div className='title'>
+                            <h1 className="head">All Cars</h1>
+                        </div>
+                    }
+
                     <div className="car-list">
                         {searchResult.length ?
                             searchResult.map(car => (
@@ -100,10 +106,10 @@ export default function Cars(a) {
             )}
             {searchResult.length ? (
                 ''
-            ):
-            <div className='pagination'>
-                <PaginationComponent onPageChange={handlePageChange} length={carsLength.length} activePage={currentPage}/>
-            </div>
+            ) :
+                <div className='pagination'>
+                    <PaginationComponent onPageChange={handlePageChange} length={carsLength.length} activePage={currentPage} />
+                </div>
             }
         </div>
     );

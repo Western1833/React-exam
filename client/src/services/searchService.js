@@ -8,9 +8,10 @@ export async function search(brand){
             throw new Error('Error: could not find searched value.');
         }
 
-        const result = request.json();
+        const result = await request.json();
+
         return result;
     }catch(err){
-        console.log(err.message);
+        throw err;
     }
 }

@@ -5,26 +5,45 @@ import './Cars.css';
 import { search } from '../../services/searchService.js';
 import { PaginationComponent } from '../Pagination/Pagination.jsx';
 
-export default function Cars() {
+export default function Cars(a) {
     const [cars, setCars] = useState([]);
+    const [carsLength, setCarsLength] = useState(0);
     const [currentCarBrand, setCarBrand] = useState('');
     const [searchResult, setSearchResult] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    }
 
     useEffect(() => {
         carService.getAllCars()
-            .then(result => setCars(result))
+            .then(result => setCarsLength(result))
             .catch(err => {
                 console.log(err);
             });
     }, []);
 
+    useEffect(() => {
+        carService.getCarsPagination(currentPage)
+            .then(result => setCars(result))
+            .catch(err => {
+                console.log(err);
+            });
+    }, [currentPage]);
+
     const handleBrandChange = (e) => {
         const carBrand = e.target.value;
         setCarBrand(carBrand);
+
+        if (carBrand === '') {
+            setCarBrand('');
+            setSearchResult([]);
+          }
     }
 
     const searchHandler = async () => {
-        const result = await search(currentCarBrand);
+        const result = await search(currentCarBrand, currentPage);
 
         setSearchResult(result);
     }
@@ -79,9 +98,13 @@ export default function Cars() {
             {cars.length === 0 && (
                 <p className='noCarsMessage'>No cars added yet.</p>
             )}
+            {searchResult.length ? (
+                ''
+            ):
             <div className='pagination'>
-                <PaginationComponent />
+                <PaginationComponent onPageChange={handlePageChange} length={carsLength.length} activePage={currentPage}/>
             </div>
+            }
         </div>
     );
 }

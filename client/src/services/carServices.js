@@ -60,6 +60,26 @@ export async function myCarsService(userId, page) {
     }
 }
 
+export async function getCarsPagination(page) {
+    const pageSize = 2;
+    const offset = (page - 1) * pageSize;
+
+    try {
+        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}?offset=${offset}&pageSize=${pageSize}`);
+
+        if (!request.ok) {
+            throw new Error('Error: could not find searched value.');
+        }
+
+        const result = await request.json();
+
+        return result;
+    } catch (err) {
+        console.log(err.message);
+        throw err;
+    }
+}
+
 export async function getSingleCar(id) {
     try {
         const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}/${id}`);

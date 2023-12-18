@@ -137,5 +137,30 @@ export const getLatestCars = async () => {
     const result = await fetch('http://localhost:3030/data/cars?sortBy=_createdOn desc&offset=0&pageSize=3');
 
     return result;
+}
 
+export async function carLikes(gameId, ownerId, likes, username){
+    const token = localStorage.getItem('accessToken');
+
+    try {
+        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}/${gameId}`, {
+            method: 'PUT',
+            headers: { 'X-authorization': token },
+            body: JSON.stringify({
+                likes: [...likes],
+                usernames: [...username],
+                userLikeId: [...ownerId],
+            })
+        });
+
+        if (!request.ok) {
+            throw new Error('Error while fetching:');
+        }
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+export async function getLikes(){
+    
 }

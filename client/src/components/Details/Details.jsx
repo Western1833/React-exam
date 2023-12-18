@@ -14,9 +14,13 @@ export function Details() {
     const { id } = useParams();
     const [car, setCar] = useState({});
     const [count, setCount] = useState(0);
-    const { userId } = useContext(AuthContext);
+    const [likes, setLikes] = useState(0);
+    const { userId, username } = useContext(AuthContext);
+
+    console.log(username)
 
     const isCreator = car._ownerId === userId;
+    const ownerId = car._ownerId;
     const isAuthenticated = localStorage.getItem('accessToken');
 
     const navigate = useNavigate();
@@ -40,9 +44,25 @@ export function Details() {
     }
 
     const handleLikeClick = () => {
-
-        setCount(count + 1);
+        setCar((prevCar) => ({
+            ...prevCar,
+            usernames: [...prevCar.usernames, username],
+        }));
     };
+
+    useEffect(() => {
+        carsService.carLikes(id, car._ownerId, car.likes, [username])
+        .then(res => {
+            console.log({...res})
+        })
+        .catch(err => {
+            console.error(err);
+        });
+    }, []);
+
+    useEffect(() => {
+        
+    }, []);
 
     return (
         <Card className={styles.carInfoCard} >

@@ -95,7 +95,7 @@ export async function deleteCar(id){
 
     try {
         const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}/${id}`, {
-            method: 'PUT',
+            method: 'DELETE',
             headers: { 'X-authorization': token }
         });
 

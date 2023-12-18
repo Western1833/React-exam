@@ -54,7 +54,6 @@ export function AuthProvider({
     const logoutHandler = () => {
       setAuth({});
       localStorage.removeItem('accessToken');
-      navigate(PATHS.home);
     }
   
     const values = {

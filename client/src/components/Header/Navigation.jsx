@@ -13,7 +13,7 @@ export default function Header() {
     <header>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand as={Link} to={PATHS.home} className="fs-4">CarSpecs</Navbar.Brand>
+          <Navbar.Brand as={Link} to={PATHS.home} className="fs-4">Car Sales</Navbar.Brand>
           <Nav className="ms-auto">
               {isAuthenticated ? (
                 <span style={{ marginRight: '10px', color: 'white', fontSize: '1.3em', lineHeight: '2.5', marginLeft: '10px', display: 'inline-block', verticalAlign: 'middle' }}>{`Hello, ${username}!`}</span>

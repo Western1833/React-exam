@@ -8,8 +8,15 @@ export default function Home() {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
-        carService.getAllCars()
-            .then(result => setCars(result.slice(-3)))
+        carService.getLatestCars()
+            .then(response =>{
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Failed to fetch cars');
+                }
+            })
+            .then(result => setCars(result))
             .catch(err => {
                 console.log(err);
             })

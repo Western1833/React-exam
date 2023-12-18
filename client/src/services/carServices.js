@@ -1,6 +1,8 @@
 import { PATHS } from "../utils/utils.js";
 
-export const getAllCars = async () => {
+export const getAllCars = async (offSet) => {
+    let pageSize = 1;
+    
     try {
         const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}`);
 
@@ -90,7 +92,7 @@ export async function editCar(id, carData) {
     }
 }
 
-export async function deleteCar(id){
+export async function deleteCar(id) {
     const token = localStorage.getItem('accessToken');
 
     try {
@@ -105,4 +107,12 @@ export async function deleteCar(id){
     } catch (err) {
         console.log(err.message);
     }
+}
+
+export const getLatestCars = async () => {
+
+    const result = await fetch('http://localhost:3030/data/cars?sortBy=_createdOn desc&offset=0&pageSize=3');
+
+    return result;
+
 }

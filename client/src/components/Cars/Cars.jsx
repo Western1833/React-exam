@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import CarInfoCar from '../Card/Card.jsx';
-import * as gameService from '../../services/carServices.js';
+import * as carService from '../../services/carServices.js';
 import './Cars.css';
 import { search } from '../../services/searchService.js';
+import { PaginationComponent } from '../Pagination/Pagination.jsx';
 
 export default function Cars() {
     const [cars, setCars] = useState([]);
@@ -10,7 +11,7 @@ export default function Cars() {
     const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {
-        gameService.getAllCars()
+        carService.getAllCars()
             .then(result => setCars(result))
             .catch(err => {
                 console.log(err);
@@ -78,6 +79,9 @@ export default function Cars() {
             {cars.length === 0 && (
                 <p className='noCarsMessage'>No cars added yet.</p>
             )}
+            <div className='pagination'>
+                <PaginationComponent />
+            </div>
         </div>
     );
 }

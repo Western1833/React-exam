@@ -1,21 +1,38 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import CarInfoCar from '../Card/Card.jsx';
-import * as gameService from '../../services/carServices.js';
+import * as carService from '../../services/carServices.js';
 import './myCarsStyles.css';
+import { PaginationComponent } from '../Pagination/Pagination.jsx';
+import AuthContext from '../../contexts/authContext.jsx';
+import { PATHS } from '../../utils/utils.js';
 
 export default function MyCars() {
     const [cars, setCars] = useState([]);
+    const [carsLength, setCarsLength] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
 
-    const userId = JSON.parse(localStorage.getItem('auth'));
+    const { userId } = useContext(AuthContext);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    }
 
     useEffect(() => {
+        fetch(`${PATHS.baseUrl}${PATHS.cars}?where=_ownerId%3D%22${userId}%22`)
+        .then(res => res.json())
+        .then(result => setCarsLength(result))
+        .catch(err => {
+            console.log(err.message)
+        })
+    }, [userId]);
 
-        gameService.myCarsService(userId._id)
+    useEffect(() => {
+        carService.myCarsService(userId, currentPage)
             .then(result => setCars(result))
             .catch(err => {
                 console.log(err);
             });
-    }, []);
+    }, [currentPage, userId]);
 
     return (
         <div className="cars-page">
@@ -35,6 +52,9 @@ export default function MyCars() {
             {cars.length === 0 && (
                 <p className='noCarsMessage'>No cars added yet.</p>
             )}
+            <div className='pagination'>
+                <PaginationComponent onPageChange={handlePageChange} length={carsLength.length} activePage={currentPage}/>
+            </div>
         </div>
     );
 }

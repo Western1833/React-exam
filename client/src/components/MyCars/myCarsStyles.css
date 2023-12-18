@@ -90,3 +90,9 @@
     justify-content: center;
     align-items: center;
   }
+
+  .pagination {
+    margin-top: auto; /* Pushes the pagination to the bottom */
+    align-items: center;
+    justify-content: center;
+}

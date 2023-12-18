@@ -10,7 +10,13 @@ export default function LogoutComponent(){
 
     useEffect(() => {
         logout()
-        .then(()=> logoutHandler())
-        .catch(()=> navigation(PATHS.home))
+        .then(()=> {
+            logoutHandler()
+            navigation(PATHS.home)
+        })
+        .catch(()=> {
+            logoutHandler()
+            navigation(PATHS.login)
+        })
     }, []);
 }

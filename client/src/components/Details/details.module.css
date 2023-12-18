@@ -1,7 +1,7 @@
 .carInfoCard{
-  width: 24rem;
+  width: 26rem;
   background-color: #C0C0C0;
-  height: 40rem;
+  height: 45rem;
   object-fit: cover;
 }
 
@@ -32,8 +32,8 @@
 
 .details {
   position: absolute;
-  width: 50%;
-  height: 80%;
+  width: 60%;
+  height: 90%;
   top: 50%; /* Position the registration div at the vertical center */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Center both vertically and horizontally */

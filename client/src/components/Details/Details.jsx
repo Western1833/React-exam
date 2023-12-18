@@ -29,7 +29,7 @@ export function Details() {
         const confirmDelete = window.confirm("Are you sure you want to delete this item?");
         if (confirmDelete) {
             await carsService.deleteCar(id);
-            navigate(-2);
+            navigate(-3);
         }else{
             navigate(`${PATHS.details}/${id}`);
         }

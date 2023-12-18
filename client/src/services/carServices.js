@@ -1,8 +1,6 @@
 import { PATHS } from "../utils/utils.js";
 
 export const getAllCars = async (offSet) => {
-    let pageSize = 1;
-    
     try {
         const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}`);
 
@@ -42,18 +40,23 @@ export const create = async (data) => {
     }
 }
 
-export async function myCarsService(userId) {
+export async function myCarsService(userId, page) {
+    const pageSize = 2;
+    const offset = (page - 1) * pageSize;
+
     try {
-        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}?where=_ownerId%3D%22${userId}%22`);
+        const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}?where=_ownerId%3D%22${userId}%22&offset=${offset}&pageSize=${pageSize}`);
 
         if (!request.ok) {
             throw new Error('Error: could not find searched value.');
         }
 
-        const result = request.json();
+        const result = await request.json();
+
         return result;
     } catch (err) {
         console.log(err.message);
+        throw err;
     }
 }
 

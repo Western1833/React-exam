@@ -1,7 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { editCar, getSingleCar } from '../../services/carServices.js';
 import './edit.css';
-import { PATHS } from '../../utils/utils.js';
 import { useEffect, useState } from 'react';
 
 export default function EditCar() {

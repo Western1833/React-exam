@@ -30,7 +30,7 @@ export default function EditCar() {
 
         await editCar(id, car);
 
-        navigate(`${PATHS.details}/${id}`);
+        navigate(-2);
     }
 
     return (
@@ -75,7 +75,7 @@ export default function EditCar() {
                     <label htmlFor="phoneNumber" className='label'>Phone number:</label>
                     <input type="text" value={car.phoneNumber} onChange={handleUpdateToCar} className='input' id="phoneNumber" name="phoneNumber" placeholder="Enter phone number..." />
 
-                    <input className="submitBtn" type="submit" value="Create Car" />
+                    <input className="submitBtn" type="submit" value="Edit Car" />
                 </div>
             </form>
         </section>

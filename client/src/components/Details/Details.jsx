@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../Details/details.module.css';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
@@ -11,10 +11,11 @@ import { PATHS } from '../../utils/utils.js';
 export function Details() {
     const { id } = useParams();
     const [car, setCar] = useState({});
-    const {userId} = useContext(AuthContext);
+    const { userId } = useContext(AuthContext);
 
     const isCreator = car._ownerId === userId;
 
+    const navigate = useNavigate();
 
     useEffect(() => {
         carsService.getSingleCar(id)
@@ -23,6 +24,16 @@ export function Details() {
                 console.log(err);
             })
     }, [id]);
+
+    const onDelete = async () => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this item?");
+        if (confirmDelete) {
+            await carsService.deleteCar(id);
+            navigate(-2);
+        }else{
+            navigate(`${PATHS.details}/${id}`);
+        }
+    }
 
     return (
         <Card className={styles.carInfoCard} >
@@ -48,9 +59,9 @@ export function Details() {
                         <Link to={`${PATHS.details}/${id}/edit`}>
                             <Button variant="primary" size="lg">Edit</Button>
                         </Link>
-                        <Link to={`${PATHS.details}/${id}/delete`}>
-                            <Button variant="primary" size="lg">Delete</Button>
-                        </Link>
+
+                        <Button variant="primary" size="lg" onClick={onDelete}>Delete</Button>
+
                     </div>
                 )}
             </Card.Body>

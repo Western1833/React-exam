@@ -28,7 +28,7 @@ export const create = async (data) => {
             const request = await fetch(`${PATHS.baseUrl}${PATHS.cars}`, {
                 method: 'POST',
                 headers: { 'X-authorization': token },
-                body: JSON.stringify(data)
+                body: JSON.stringify({...data, likes: [], usernames: [], userLikeId: []})
             });
 
             if (!request.ok) {

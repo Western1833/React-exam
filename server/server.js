@@ -1348,6 +1348,7 @@
                 year: "2023",
                 price: "120000",
                 phoneNumber: "232323",
+                likes: [],
                 _createdOn: 1702883716956,
                 _id: "d86b03cb-1ff0-4e91-bfda-a24e5554d076",
                 _updatedOn: 1702885485346
@@ -1360,6 +1361,9 @@
                 year: "2019",
                 price: "60000",
                 phoneNumber: "231313",
+                likes: [],
+                usernames: [],
+                userLikeId: [],
                 _createdOn: 1702883725234,
                 _id: "e787fd5b-a88d-497d-931f-17dc30ada35e",
                 _updatedOn: 1702885551649
@@ -1372,6 +1376,9 @@
                 year: "2020",
                 price: "75000",
                 phoneNumber: "1313231",
+                likes: [],
+                usernames: [],
+                userLikeId: [],
                 _createdOn: 1702883824291,
                 _id: "e80c4639-4b60-48f9-bb3c-2256e42af711",
                 _updatedOn: 1702885618977
@@ -1384,6 +1391,9 @@
                 year: "2022",
                 price: "95000",
                 phoneNumber: "12135445",
+                likes: [],
+                usernames: [],
+                userLikeId: [],
                 _createdOn: 1702883859835,
                 _id: "bdc9f778-e578-4e99-aaaf-8fd084ba7251",
                 _updatedOn: 1702885852081
@@ -1396,6 +1406,9 @@
                 year: "2022",
                 price: "200000",
                 phoneNumber: "12312344",
+                likes: [],
+                usernames: [],
+                userLikeId: [],
                 _createdOn: 1702883875074,
                 _id: "32237ad8-578a-4234-9fee-aee744a91301",
                 _updatedOn: 1702885978033
@@ -1408,6 +1421,9 @@
                 year: "2023",
                 price: "40000",
                 phoneNumber: "1313231",
+                likes: [],
+                usernames: [],
+                userLikeId: [],
                 _createdOn: 1702884759753,
                 _id: "755ae046-6478-4f9f-9595-7494f0616b8d"
             },
@@ -1419,6 +1435,9 @@
                 year: "2024",
                 price: "45000",
                 phoneNumber: "1313231",
+                likes: [],
+                usernames: [],
+                userLikeId: [],
                 _createdOn: 1702884860519,
                 _id: "1e0ae452-f0b4-47c4-837b-e1bad03a39b5"
             },
@@ -1430,6 +1449,9 @@
                 year: "2014",
                 price: "25000",
                 phoneNumber: "1234334",
+                likes: [],
+                usernames: [],
+                userLikeId: [],
                 _createdOn: 1702884948015,
                 _id: "c22f4d05-1bde-41d8-8ce6-97a4680a9e95"
             },
@@ -1441,6 +1463,9 @@
                 year: "2020",
                 price: "40000",
                 phoneNumber: "223344",
+                likes: [],
+                usernames: [],
+                userLikeId: [],
                 _createdOn: 1702885022303,
                 _id: "103bbe75-14e8-4919-a56a-c0433dd8eb49",
                 _updatedOn: 1702885089692
@@ -1453,6 +1478,9 @@
                 year: "2023",
                 price: "90000",
                 phoneNumber: "222222",
+                likes: [],
+                usernames: [],
+                userLikeId: [],
                 _createdOn: 1702885177392,
                 _id: "02789ed1-6f10-4666-9dc6-3161b666aacd"
             },
@@ -1464,6 +1492,9 @@
                 year: "2023",
                 price: "89000",
                 phoneNumber: "1234334",
+                likes: [],
+                usernames: [],
+                userLikeId: [],
                 _createdOn: 1702885291552,
                 _id: "26c674be-b3c7-4f19-95d9-8c3a82c8ddff"
             },
@@ -1475,6 +1506,9 @@
                 year: "2019",
                 price: "45000",
                 phoneNumber: "1313231",
+                likes: [],
+                usernames: [],
+                userLikeId: [],
                 _createdOn: 1702885408775,
                 _id: "2104cd01-d7f7-4d24-9707-49217136d25e"
             }

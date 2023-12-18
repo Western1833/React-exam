@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { PATHS } from '../../utils/utils.js';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './card.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
@@ -19,6 +19,8 @@ export default function CarInfoCard({
     const [count, setCount] = useState(0);
 
     const {userId} = useContext(AuthContext);
+    console.log(userId)
+    console.log()
 
     const handleLikeClick = () => {
         setCount(count + 1);
@@ -47,7 +49,7 @@ export default function CarInfoCard({
                         <Button variant="primary">Details</Button>
                     </Link>
                     <Link >
-                        <Button  variant="primary" onClick={handleLikeClick}>
+                        <Button variant="primary" onClick={handleLikeClick}>
                             <FontAwesomeIcon icon={faThumbsUp} />
                             <span>{count}</span>
                         </Button>

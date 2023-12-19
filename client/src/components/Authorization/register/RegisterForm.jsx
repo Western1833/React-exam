@@ -4,7 +4,7 @@ import AuthContext from '../../../contexts/authContext.jsx';
 import useForm from '../../../hooks/useForm.js';
 
 export default function RegisterForm() {
-    const {registerSubmitHandler} = useContext(AuthContext);
+    const {registerSubmitHandler, error} = useContext(AuthContext);
 
     const {values, onChange, onSubmit} = useForm(registerSubmitHandler, {
         email: '',
@@ -60,6 +60,9 @@ export default function RegisterForm() {
             value={values.repeatPassword}
             onChange={onChange}
             />
+            {error && (
+          <p style={{color: 'red'}}>{error}</p>
+        )}
         <button>Register</button>
     </form>
     );

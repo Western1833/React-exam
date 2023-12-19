@@ -19,7 +19,7 @@ export async function login({ email, password }) {
         const result = response.json();
         return result;
     } catch (err) {
-        console.log(err.message);
+        throw err
     }
 }
 
@@ -31,6 +31,10 @@ export async function register({ email, username, password,  }) {
             body: JSON.stringify({ email, username, password })
         });
 
+        if(response.status === 409){
+            throw new Error('Email already in use.');
+        }
+
         if (!response.ok) {
             throw new Error('Error while fetching.');
         }
@@ -38,7 +42,7 @@ export async function register({ email, username, password,  }) {
         const result = response.json();
         return result;
     } catch (err) {
-        console.log(err.message);
+        throw err;
     }
 }
 

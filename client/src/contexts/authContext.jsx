@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { PATHS, emailRegex } from '../utils/utils.js';
 import { login, register } from '../services/authService.js';
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +12,7 @@ export function AuthProvider({
 
     const navigate = useNavigate();
     const [auth, setAuth] = usePersistedState('auth', {});
+    const [error, setError] = useState();
   
     const loginSubmitHandler = async (values) => {
       try {
@@ -23,7 +24,7 @@ export function AuthProvider({
         
         navigate(PATHS.home);
       } catch (err) {
-        console.log(err);
+        setError(err.message);
       }
     }
   
@@ -33,6 +34,10 @@ export function AuthProvider({
           throw new Error('Password too short, minimum 3 characters.');
         } else if (values.password !== values.repeatPassword) {
           throw new Error('Password missmatch!');
+        }else if(!values.username.length){
+          throw new Error('Username required!');
+        }else if(values.username .length < 2){
+          throw new Error('Username too short, minimum 2 chars!');
         }
   
         if (emailRegex.test(values.email)) {
@@ -47,7 +52,7 @@ export function AuthProvider({
           throw new Error('invalid email!');
         }
       } catch (err) {
-        console.log(err);
+        setError(err.message);
       }
     }
   
@@ -55,6 +60,12 @@ export function AuthProvider({
       setAuth({});
       localStorage.removeItem('accessToken');
     }
+
+    const clearErrorTimeoutId = setTimeout(() => {
+      if (error) {
+        setError('');
+      }
+    }, 2000);
   
     const values = {
       loginSubmitHandler,
@@ -64,6 +75,7 @@ export function AuthProvider({
       username: auth.username,
       userId: auth._id,
       isAuthenticated: !!auth.accessToken,
+      error
     }
 
     return(

@@ -14,13 +14,9 @@ export function Details() {
     const { id } = useParams();
     const [car, setCar] = useState({});
     const [count, setCount] = useState(0);
-    const [likes, setLikes] = useState(0);
     const { userId, username } = useContext(AuthContext);
 
-    console.log(username)
-
     const isCreator = car._ownerId === userId;
-    const ownerId = car._ownerId;
     const isAuthenticated = localStorage.getItem('accessToken');
 
     const navigate = useNavigate();
@@ -44,25 +40,23 @@ export function Details() {
     }
 
     const handleLikeClick = () => {
-        setCar((prevCar) => ({
-            ...prevCar,
-            usernames: [...prevCar.usernames, username],
-        }));
-    };
+        setCount(count + 1);
 
-    useEffect(() => {
-        carsService.carLikes(id, car._ownerId, car.likes, [username])
+        carsService.carLikes(car, id, count, [username])
         .then(res => {
             console.log({...res})
         })
         .catch(err => {
             console.error(err);
         });
-    }, []);
 
-    useEffect(() => {
-        
-    }, []);
+        setCar((car) => ({
+            ...car,
+            likes: [car.likes, count],
+            usernames: [car.usernames, username],
+        }));
+    };
+
 
     return (
         <Card className={styles.carInfoCard} >
@@ -86,7 +80,7 @@ export function Details() {
                             Phone number: {car.phoneNumber}
                         </Card.Text>
                         <Card.Text>
-                            Likes: {car.usernames}
+                            Likes: {car.usernames?.join(', ')}
                         </Card.Text>
                         </Card.Body>
                     </>
@@ -110,7 +104,7 @@ export function Details() {
                             Phone number: {car.phoneNumber}
                         </Card.Text>
                         <Card.Text>
-                            Likes: {car.usernames}
+                            Likes: {car.usernames?.join(', ')}
                         </Card.Text>
                             <div className={styles.buttonsDiv}>
                             <Link to={`${PATHS.details}/${id}/edit`}>
@@ -118,6 +112,10 @@ export function Details() {
                             </Link>
 
                             <Button variant="primary" size="lg" onClick={onDelete}>Delete</Button>
+                            <Button variant="primary" onClick={handleLikeClick}>
+                                    <FontAwesomeIcon icon={faThumbsUp} />
+                                    <span>{count}</span>
+                            </Button>
                         </div>
                         </Card.Body>
                     )}
@@ -144,14 +142,8 @@ export function Details() {
                         </Card.Text>
                         </Card.Body>
                             <Card.Text>
-                                Likes: {car.usernames}
+                                Likes: {car.usernames?.join(', ')}
                             </Card.Text>
-                            <Link >
-                                <Button variant="primary" onClick={handleLikeClick}>
-                                    <FontAwesomeIcon icon={faThumbsUp} />
-                                    <span>{count}</span>
-                                </Button>
-                            </Link>
                         </>
                     )}
         </Card>

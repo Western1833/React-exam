@@ -139,7 +139,7 @@ export const getLatestCars = async () => {
     return result;
 }
 
-export async function carLikes(gameId, ownerId, likes, username){
+export async function carLikes(carData, gameId, likes, username){
     const token = localStorage.getItem('accessToken');
 
     try {
@@ -147,20 +147,19 @@ export async function carLikes(gameId, ownerId, likes, username){
             method: 'PUT',
             headers: { 'X-authorization': token },
             body: JSON.stringify({
-                likes: [...likes],
-                usernames: [...username],
-                userLikeId: [...ownerId],
+                ...carData, 
+                likes: [likes],
+                usernames: [username]
             })
         });
 
         if (!request.ok) {
             throw new Error('Error while fetching:');
         }
+
+        return request.json();
+        
     } catch (err) {
         console.log(err.message);
     }
-}
-
-export async function getLikes(){
-    
 }
